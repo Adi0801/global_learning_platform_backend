@@ -1,4 +1,4 @@
-# Global Learning Platform Backend
+<img width="698" height="702" alt="image" src="https://github.com/user-attachments/assets/b1255767-bce1-4f17-a8a0-09b56a58f988" /># Global Learning Platform Backend
 
 Spring Boot backend for a live-class booking system. Teachers create offerings with multiple sessions. Parents book a complete offering, and the backend prevents duplicate or overlapping bookings across timezones.
 
@@ -190,22 +190,18 @@ courses, teachers, parents, offerings, sessions, bookings
 
 ## Screenshots
 
-
-[Successful booking](
+**[Successful booking]**
 <img width="678" height="722" alt="image" src="https://github.com/user-attachments/assets/4ace9113-cc07-4d10-9369-ef755cfcabdf" />
 
-)
 
-[Duplicate booking conflict](
+**[Duplicate booking conflict]**
 <img width="698" height="702" alt="image" src="https://github.com/user-attachments/assets/bbce033c-3080-4a97-9c82-f35236bb7831" />
 
-)
 
-[Timezone conversion](
+**[Timezone conversion]**
 <img width="988" height="812" alt="image" src="https://github.com/user-attachments/assets/d002f8ca-4d96-4581-99b6-8495f5c0ccd6" />
 <img width="1317" height="786" alt="image" src="https://github.com/user-attachments/assets/efb61b36-31f5-4fbf-bacb-6463e54b4d4c" />
 
-)
 
 ## Run
 
