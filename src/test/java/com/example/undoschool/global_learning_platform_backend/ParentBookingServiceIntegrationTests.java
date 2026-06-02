@@ -62,5 +62,8 @@ class ParentBookingServiceIntegrationTests {
         assertThat(response.parentId()).isEqualTo(OTHER_PARENT);
         assertThat(response.offeringId()).isEqualTo(NON_OVERLAPPING_OFFERING);
         assertThat(response.status()).isEqualTo(BookingStatus.CONFIRMED);
+        assertThat(response.offering().sessions()).hasSize(1);
+        assertThat(response.offering().sessions().get(0).timeZone()).isEqualTo("Europe/London");
+        assertThat(response.offering().sessions().get(0).startTime().toString()).isEqualTo("2026-06-09T22:00+01:00");
     }
 }

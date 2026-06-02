@@ -38,6 +38,12 @@ Run tests:
 .\mvnw.cmd test
 ```
 
+Docker setup is also available:
+
+```bash
+docker compose up --build
+```
+
 ## Environment Variables Required
 
 ```env
@@ -153,6 +159,40 @@ Optional<ParentProfile> findByIdForUpdate(UUID id);
 
 This ensures simultaneous booking requests for the same parent are processed one at a time. After the first request commits, the second request sees the new booking and fails if it is duplicate or overlapping.
 
+## Testing Approach
+
+Unit tests:
+
+```text
+src/test/java/com/example/undoschool/global_learning_platform_backend/ParentBookingServiceUnitTests.java
+```
+
+Covered scenarios:
+
+- Duplicate booking fails with conflict
+- Overlapping booking fails with conflict
+- Offering without sessions cannot be booked
+- Cancelled offering cannot be booked
+
+Integration tests:
+
+```text
+src/test/java/com/example/undoschool/global_learning_platform_backend/ParentBookingServiceIntegrationTests.java
+```
+
+Covered scenarios:
+
+- Duplicate booking using H2 seed data
+- Overlapping session conflict using H2 seed data
+- Successful non-overlapping booking
+- Parent timezone conversion in booking response
+
+H2 test data:
+
+```text
+src/test/resources/data.sql
+```
+
 ## Timezone Handling Approach
 
 Teachers create sessions in their own timezone. The backend converts those local times to UTC before saving.
@@ -209,6 +249,8 @@ The same stored UTC session is shown in the parent's requested timezone.
 
 ## Steps to Run the Application Locally
 
+### Option 1: Run With Local PostgreSQL
+
 1. Create PostgreSQL database:
 
 ```sql
@@ -240,4 +282,30 @@ http://localhost:8080/swagger-ui.html
 
 ```bash
 .\mvnw.cmd test
+```
+
+### Option 2: Run With Docker Compose
+
+Start PostgreSQL and the backend together:
+
+```bash
+docker compose up --build
+```
+
+Application:
+
+```text
+http://localhost:8080
+```
+
+Swagger:
+
+```text
+http://localhost:8080/swagger-ui.html
+```
+
+Stop containers:
+
+```bash
+docker compose down
 ```
